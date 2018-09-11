@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "required": [
+      "url",
+      "forks_url",
+      "commits_url",
+      "id",
+      "node_id",
+      "git_pull_url",
+      "git_push_url",
+      "html_url",
+      "files",
+      "public",
+      "created_at",
+      "updated_at",
+      "description",
+      "user",
+      "comments_url",
+      "owner",
+      "truncated"
+  ],
+  "definitions": {
+    "url": {
+      "type": "string",
+      "pattern": "^(?!mailto:)(?:(?:http|https|ftp)://)(?:\\S+(?::\\S*)?@)?(?:(?:(?:[1-9]\\d?|1\\d\\d|2[01]\\d|22[0-3])(?:\\.(?:1?\\d{1,2}|2[0-4]\\d|25[0-5])){2}(?:\\.(?:[0-9]\\d?|1\\d\\d|2[0-4]\\d|25[0-4]))|(?:(?:[a-z\\u00a1-\\uffff0-9]+-?)*[a-z\\u00a1-\\uffff0-9]+)(?:\\.(?:[a-z\\u00a1-\\uffff0-9]+-?)*[a-z\\u00a1-\\uffff0-9]+)*(?:\\.(?:[a-z\\u00a1-\\uffff]{2,})))|localhost)(?::\\d{2,5})?(?:(/|\\?|#)[^\\s]*)?$"
+    },
+    "owner": {
+      "type": "object",
+      "properties": {
+        "login":               {"type": "string"},
+        "id":                  {"type": "integer"},
+        "node_id":             {"type": "string"},
+        "avatar_url":          {"$ref": "#/definitions/url" },
+        "gravatar_id":         {"type": "string"},
+        "url":                 {"$ref": "#/definitions/url" },
+        "html_url":            {"$ref": "#/definitions/url" },
+        "followers_url":       {"$ref": "#/definitions/url" },
+        "following_url":       {"$ref": "#/definitions/url" },
+        "gists_url":           {"$ref": "#/definitions/url" },
+        "starred_url":         {"$ref": "#/definitions/url" },
+        "subscriptions_url":   {"$ref": "#/definitions/url" },
+        "organizations_url":   {"$ref": "#/definitions/url" },
+        "repos_url":           {"$ref": "#/definitions/url" },
+        "events_url":          {"$ref": "#/definitions/url" },
+        "received_events_url": {"$ref": "#/definitions/url" },
+        "type":                {"type": "string"},
+        "site_admin":          {"type": "boolean"}
+      }
+    }
+  },
+  "properties": {
+      "url":                 {"$ref": "#/definitions/url" },
+      "forks_url":           {"$ref": "#/definitions/url" },
+      "commits_url":         {"$ref": "#/definitions/url" },
+      "id":                  {"type": "string", "pattern": "^[0-9a-h]{32}$"},
+      "node_id":             {"type": "string"},
+      "git_pull_url":        {"$ref": "#/definitions/url" },
+      "git_push_url":        {"$ref": "#/definitions/url" },
+      "html_url":            {"$ref": "#/definitions/url" },
+      "files":               {"type": "object"},
+      "public":              {"type": "boolean"},
+      "created_at":          {"type": "string"},
+      "updated_at":          {"type": "string"},
+      "description":         {"type": ["string", "null"]},
+      "user":                {"type": ["string", "null"]},
+      "comments_url":        {"$ref": "#/definitions/url" },
+      "owner":               {"$ref": "#/definitions/owner" },
+      "truncated":           {"type": "boolean"}
+  }
+}
